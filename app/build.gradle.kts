@@ -56,7 +56,7 @@ android {
 
 dependencies {
 
-    // Compose
+    // uz.androix.buildsrc.Compose
     val composeBom = platform(Compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -74,26 +74,26 @@ dependencies {
     androidTestImplementation(Compose.uiTestJunit)
     debugImplementation(Compose.uiTestManifest)
 
-    // Coil
+    // uz.androix.buildsrc.Coil
     implementation(Coil.coilCompose)
 
-    //Core
+    //uz.androix.buildsrc.Core
     implementation(Core.ktx)
 
-    //Lifecycle
+    //uz.androix.buildsrc.Lifecycle
     implementation(Lifecycle.runtime)
 
     // Hilt
     implementation(Hilt.android)
     kapt(Hilt.compiler)
 
-    // Retrofit
+    // uz.androix.buildsrc.Retrofit
     implementation(Retrofit.okHttp)
     implementation(Retrofit.retrofit)
     implementation(Retrofit.okHttpLoggingInterceptor)
     implementation(Retrofit.moshiConverter)
 
-    // Room
+    // uz.androix.buildsrc.Room
     implementation(Room.runtime)
     implementation(Room.ktx)
     kapt(Room.compiler)
@@ -103,7 +103,7 @@ dependencies {
     testImplementation(JUnit.junit4)
     androidTestImplementation(JUnit.ext)
 
-    // Module
+    // uz.androix.buildsrc.Module
     implementation(project(Module.CoreUi))
     implementation(project(Module.currentWeather))
     implementation(project(Module.forecasting))
