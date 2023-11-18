@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.font.FontStyle
@@ -24,6 +25,7 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import uz.eloving.core_ui.ErrorDialog
 import uz.eloving.core_ui.FullScreenLoading
+import uz.eloving.core_ui.PrefManager
 import uz.eloving.core_ui.R
 import uz.eloving.current_weather.viewmodel.CurrentWeatherViewModel
 import uz.eloving.data.model.CurrentWeather
@@ -33,11 +35,18 @@ import uz.eloving.data.network.Resource
 @Composable
 fun CurrentWeatherScreen(
     navController: NavController,
-    viewModel: CurrentWeatherViewModel = hiltViewModel()
-) {
+    viewModel: CurrentWeatherViewModel = hiltViewModel(),
 
-    LaunchedEffect(key1 = Unit) {
-        viewModel.getCurrentWeather()
+) {
+    val context = LocalContext.current
+
+
+
+    val savedLocation by rememberUpdatedState(newValue = PrefManager.getCurrentLocation(context))
+
+    LaunchedEffect(savedLocation) {
+        // Fetch data when the saved location changes
+        viewModel.getCurrentWeather(savedLocation)
     }
 
     val state by viewModel.state.collectAsState()
@@ -285,11 +294,4 @@ fun hourItem(
 
         }
     }
-}
-
-
-@Preview
-@Composable
-fun CurrentWeatherPreview() {
-//    CurrentWeatherScreen()
 }
