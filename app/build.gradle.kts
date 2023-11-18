@@ -80,6 +80,11 @@ dependencies {
     //uz.androix.buildsrc.Core
     implementation(Core.ktx)
 
+//    // uz.androix.buildsrcIcons
+//    implementation (Icons.coreIcons)
+//    implementation (Icons.extendedIcons)
+
+
     //uz.androix.buildsrc.Lifecycle
     implementation(Lifecycle.runtime)
 

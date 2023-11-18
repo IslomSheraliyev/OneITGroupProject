@@ -43,6 +43,7 @@ android {
 
 dependencies {
 
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     // uz.androix.buildsrc.Compose
     val composeBom = platform(Compose.bom)
     implementation(composeBom)
